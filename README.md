@@ -1,4 +1,4 @@
-# BRCAL: Bayesian Regularized Calibrated estimation of propensity scores for causal inference
+# BRCAL: Bayesian Regularized CALibrated posterior draws of Average Treatment Effect
 
 This repository provides the R code implementing the Bayesian regularized calibrated estimation of propensity scores for causal inference, as proposed by the following paper.
 
