@@ -58,7 +58,8 @@ BRCAL <- function(Y, A, X, weight=1, PCIC.print=TRUE,
     post_theta0 <- til_mu0+sqrt(til_tau0^(-1))*dqrng::dqrnorm(iter_sampling)
     
     post_ate_brcal <- post_theta1 - post_theta0
-    
+
+    n <- length(Y)
     v_theta1 <- -t(apply(post_ps_brcal,1,function(x){A/x}))*(t(matrix(rep(Y,iter_sampling),n))-post_theta1)^2
     v_theta0 <- -t(apply(post_ps_brcal,1,function(x){(1-A)/(1-x)}))*(t(matrix(rep(Y,iter_sampling),n))-post_theta0)^2
     v_alpha <- -A*exp(-tcrossprod(post_alpha,cbind(1,X))) - (1-A)*tcrossprod(post_alpha,cbind(1,X)) - (1-A)*exp(tcrossprod(post_alpha,cbind(1,X))) + A*tcrossprod(post_alpha,cbind(1,X))
